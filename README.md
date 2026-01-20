@@ -167,10 +167,13 @@ todo add "Learn Python" --tag "learning coding"
 │                                                             │
 │ Due: Today (overdue by 4h)                                  │
 │ Tags: ai, testing, fun                                      │
-│                                                             │
-│ [c] Complete   [e] Edit   [d] Delete   [b] Back            │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+Use `todo show <id>` to view task details. Use separate commands to interact with tasks:
+- `todo done <id>` - Mark as completed
+- `todo edit <id>` - Edit the task
+- `todo delete <id>` - Delete the task
 
 ## Configuration
 
