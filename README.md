@@ -223,8 +223,7 @@ todomaster/
 │   ├── ui.py            # Rich UI components
 │   └── utils.py         # Date parsing and utilities
 ├── tests/
-│   ├── test_tasks.py    # Task model tests
-│   ├── test_storage.py  # Storage layer tests
+│   ├── test_tasks.py    # Task model and storage tests
 │   ├── test_cli.py      # CLI interface tests
 │   └── test_utils.py    # Utility function tests
 ├── pyproject.toml       # Project configuration and dependencies
@@ -254,7 +253,7 @@ todomaster/
 - Dependencies defined in `pyproject.toml`:
   - `typer`: CLI framework
   - `rich`: Terminal UI
-  - `pendulum`: Date handling
+  - `python-dateutil`: Date parsing
 
 ## License
 

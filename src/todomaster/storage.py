@@ -1,7 +1,6 @@
 """SQLite storage layer for TodoMaster."""
 
 import sqlite3
-import threading
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -20,7 +19,6 @@ class Storage:
             db_path = db_dir / "tasks.db"
 
         self.db_path = db_path
-        self._lock = threading.Lock()
         self._init_db()
 
     def close(self):

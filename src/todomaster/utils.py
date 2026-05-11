@@ -3,11 +3,6 @@
 import re
 from datetime import datetime, timedelta
 
-try:
-    import dateutil.parser
-except ImportError:
-    dateutil = None
-
 from .tasks import Priority
 
 
@@ -45,17 +40,7 @@ def parse_date(date_str: str) -> datetime | None:
     try:
         from dateutil import parser
 
-        parsed = parser.parse(date_str)
-        return parsed
-    except Exception:
-        pass
-
-    # Try pendulum for natural language parsing
-    try:
-        import dateutil.parser
-
-        parsed = dateutil.parser.parse(date_str)
-        return parsed
+        return parser.parse(date_str)
     except Exception:
         pass
 

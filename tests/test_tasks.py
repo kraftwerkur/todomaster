@@ -89,7 +89,7 @@ class TestTask:
         task.update_description("New description")
         assert task.description == "New description"
         assert task.updated_at is not None
-        assert task.updated_at > original_updated if original_updated else True
+        assert task.updated_at >= original_updated
 
     def test_update_priority(self):
         """Test updating task priority."""

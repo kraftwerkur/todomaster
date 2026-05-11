@@ -22,9 +22,8 @@ TodoMaster is a beautiful, robust command-line todo list application built with 
 
 ### Technical Features
 - **Persistent Storage**: SQLite database with automatic creation
-- **Thread Safety**: Proper locking for concurrent access
-- **Date Handling**: Robust parsing with Pendulum library
-- **Error Handling**: Comprehensive validation and user-friendly error messages
+- **Date Handling**: Natural-language parsing via python-dateutil with fallback formats
+- **Error Handling**: Validation and user-friendly error messages on CLI boundaries
 
 ## Architecture Decisions
 
@@ -32,7 +31,7 @@ TodoMaster is a beautiful, robust command-line todo list application built with 
 The project follows a clean separation of concerns:
 
 - **`tasks.py`**: Core Task model and business logic
-- **`storage.py`**: SQLite persistence layer with thread safety
+- **`storage.py`**: SQLite persistence layer
 - **`ui.py`**: Rich terminal UI components
 - **`cli.py`**: Typer-based command-line interface
 - **`utils.py`**: Date parsing, validation, and utility functions
@@ -41,7 +40,7 @@ The project follows a clean separation of concerns:
 - **Python 3.10+**: Modern Python with type hints
 - **Typer**: Modern CLI framework with automatic help generation
 - **Rich**: Terminal UI library for beautiful output
-- **Pendulum**: Robust date parsing and manipulation
+- **python-dateutil**: Date parsing
 - **SQLite**: Reliable, serverless database storage
 
 ### Data Model
@@ -109,14 +108,12 @@ pytest --cov=src/todomaster --cov-report=term-missing
 
 ## Test Coverage
 
-The project maintains comprehensive test coverage:
-- **100%** test coverage achieved
-- **100 tests** covering all major functionality
+- **100 tests** across 3 test modules, all passing
+- **~83% line coverage** (pyproject enforces a `--cov-fail-under=80` gate)
 - **Test categories**:
-  - Unit tests for all components
-  - Integration tests for CLI commands
-  - Edge cases and error conditions
-  - Mock tests for external dependencies
+  - Unit tests for the Task model and storage layer (test_tasks.py)
+  - CLI integration tests via Typer's CliRunner (test_cli.py)
+  - Date parsing and utility tests (test_utils.py)
 
 ## Quality Metrics
 
@@ -127,9 +124,7 @@ The project maintains comprehensive test coverage:
 - **Documentation**: Complete docstrings for all public APIs
 
 ### Performance
-- **Database**: SQLite with proper indexing
-- **Memory**: Efficient data structures
-- **Concurrency**: Thread-safe storage operations
+- **Database**: SQLite via the stdlib `sqlite3` module
 - **Startup**: Fast command execution
 
 ## Configuration
@@ -163,7 +158,7 @@ The project maintains comprehensive test coverage:
 
 - **Total Files**: 11 Python files
 - **Lines of Code**: ~575 statements
-- **Test Files**: 4 test modules
+- **Test Files**: 3 test modules
 - **Dependencies**: 3 main dependencies
 - **Development Dependencies**: 4 tools for testing and linting
 

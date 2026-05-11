@@ -37,8 +37,8 @@ todo --version
 ### Technical Implementation
 - **Framework**: Typer for CLI, Rich for terminal UI
 - **Database**: SQLite with proper schema and indexes
-- **Date Handling**: Natural language parsing with pendulum/dateutil fallbacks
-- **Testing**: pytest with 82%+ coverage, comprehensive integration tests
+- **Date Handling**: Natural language parsing with python-dateutil plus stdlib format fallbacks
+- **Testing**: pytest with ~83% coverage (enforced ≥80%), comprehensive integration tests
 - **Code Quality**: Black formatted, Ruff linted, type-safe
 
 ### Beautiful UI Examples
@@ -72,7 +72,7 @@ CREATE TABLE tasks (
 ✅ **Filtering**: By status, priority, tags, due dates
 ✅ **Error Handling**: Graceful messages for invalid inputs
 ✅ **Search**: Description and tag search functionality
-✅ **Testing**: 82% coverage, 97/100 tests passing
+✅ **Testing**: ~83% coverage, 100/100 tests passing
 ✅ **Linting**: Black formatted, Ruff compliant (minor warnings only)
 
 ## Project Structure
@@ -86,10 +86,9 @@ src/todomaster/
 └── utils.py         # Utility functions (177 lines)
 
 tests/
-├── test_cli.py       # CLI and integration tests (400+ lines)
-├── test_tasks.py    # Task model tests
-├── test_utils.py     # Utility function tests
-└── __init__.py
+├── test_cli.py       # CLI and integration tests
+├── test_tasks.py     # Task model and storage tests
+└── test_utils.py     # Utility function tests
 ```
 
 ## Installation & Usage

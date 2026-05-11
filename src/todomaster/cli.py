@@ -185,7 +185,7 @@ def edit(
 
         storage.update_task(task)
 
-        ui.render_success(f"Task {id} updated")
+        ui.render_success(f"Task {task_id_int} updated")
         ui.render_task_detail(task)
 
     except Exception as e:
